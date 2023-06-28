@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApp12.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp12"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblName" Content="Name:" HorizontalAlignment="Left" Margin="65,44,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="lblRoll" Content="Roll:" HorizontalAlignment="Left" Margin="65,79,0,0" VerticalAlignment="Top" Width="43"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="120,44,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" Height="26"/>
+        <TextBox x:Name="txtRoll" HorizontalAlignment="Left" Margin="120,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" Height="26"/>
+        <TextBox x:Name="txtSudentId" Visibility="Hidden" HorizontalAlignment="Left" Margin="120,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="90" Height="20"/>
+        <Button x:Name="btnSaveStudent" Content="btnSaveStudent" HorizontalAlignment="Left" Margin="120,119,0,0" VerticalAlignment="Top" Height="25" Width="90" Click="btnSaveStudent_Click"/>
+
+        <Button x:Name="btnLoadStudents" Content="Load Students" HorizontalAlignment="Left" Margin="305,44,0,0" VerticalAlignment="Top" Width="430" Click="btnLoadStudents_Click"/>
+        <DataGrid x:Name="dgStudent" Margin="246,88,34,36"
+                  xmlns:my="http://schemas.microsoft.com/wpf/2008/toolit"
+                  CanUserAddRows="True"
+                  ItemsSource="{Binding}"
+                  AutoGenerateColumns="False"
+                  
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Student Id" Binding="{Binding Path=StudentId}"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}"/>
+                <DataGridTextColumn Header="Roll" Binding="{Binding Path=Roll}"/>
+                <DataGridTemplateColumn Header="Edit Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnEditStudent">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Delete Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnDeleteStudent">Edit</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBox x:Name="Login" HorizontalAlignment="Left" Margin="108,184,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102" Height="28"/>
+        <TextBox x:Name="Password" HorizontalAlignment="Left" Margin="108,243,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="102" Height="22"/>
+        <Label Content="Login:" HorizontalAlignment="Left" Margin="55,184,0,0" VerticalAlignment="Top" Width="53" Height="36"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="40,239,0,0" VerticalAlignment="Top" Width="63"/>
+        <Button Content="Enter" HorizontalAlignment="Left" Margin="140,289,0,0" VerticalAlignment="Top" Width="59" Click="Button_Click"/>
+
+    </Grid>
+</Window>
